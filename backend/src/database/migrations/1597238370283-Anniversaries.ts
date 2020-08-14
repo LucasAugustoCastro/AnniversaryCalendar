@@ -18,8 +18,8 @@ export default class Anniversaries1597238370283 implements MigrationInterface {
                     type: 'varchar',
                 },
                 {
-                    name: 'date', 
-                    type: 'timestamp with time zone',
+                    name: 'birthday_date', 
+                    type: 'date',
                 },
                 {
                     name: 'user_id', 

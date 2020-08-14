@@ -20,7 +20,7 @@ class Anniversary {
   birthday_person: string;
 
   @Column()
-  date: string;
+  birthday_date: string;
 
   @Column()
   user_id: string;
