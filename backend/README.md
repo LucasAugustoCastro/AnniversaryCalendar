@@ -1,8 +1,8 @@
-- [/] cadastro(nome, email, senha, confirmar senha, termos de uso)
+- [X] cadastro(nome, email, senha, confirmar senha, termos de uso)
 - [X] login(email, senha)
 - [X] aniversario CRUD (Create, Read, Update, Delete)
   - [X] Criando(nome aniversariante, data do aniversario(dia, mes, ano de nascimento?))
-  - [] Verificaçoes campos que serao enviados
+  - [X] Verificaçoes campos que serao enviados
   - [X] Mostrar os aniversarios
   - [X] Atualizar aniversario (nome, data)
   - [X] Deletar aniversario

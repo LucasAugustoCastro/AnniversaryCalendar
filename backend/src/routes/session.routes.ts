@@ -1,25 +1,27 @@
 import { Router } from 'express';
-import AuthenticateUser from '../services/AuthenticateUserService';
+import {celebrate, Segments, Joi} from 'celebrate';
+import SessionController from '../controller/SessionController';
 
 const sessionRouter = Router();
 
-sessionRouter.post('/', async (request, response) => {
-  try {
-    const { email, password } = request.body;
+const sessionController = new SessionController();
 
-  const authenticateUser = new AuthenticateUser();
-
-  const {user, token} = await authenticateUser.execute({
-    email,
-    password,
-  });
-
-  delete user.password
-
-  return response.json({user, token})
-  } catch (err) {
-    return response.status(err.statusCode).json({ error: err.message });
-  }
-})
+sessionRouter.post('/', 
+celebrate({
+  [Segments.BODY]: {
+    email: 
+      Joi
+        .string()
+        .email()
+        .required()
+        .error(new Error("Please write a valid email")),
+    password: 
+      Joi
+        .string()
+        .min(6)
+        .required()
+        .error(new Error("Password is a required field")),
+  },
+}), sessionController.create);
 
 export default sessionRouter;
